@@ -1,7 +1,8 @@
 # Self-Study
 Online Note
 
-<cython>
+<b> cython </b>
   1. Hello Code of cython.
-<openCV>
+---------------------------------------------------------------
+<b> openCV </b>
   1. Simple example to use camera on the computer.
