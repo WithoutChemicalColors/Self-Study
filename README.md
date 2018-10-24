@@ -1,3 +1,7 @@
 # Self-Study
 Online Note
-TESTING
+
+<cython>
+  1. Hello Code of cython.
+<openCV>
+  1. Simple example to use camera on the computer.
