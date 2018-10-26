@@ -1,4 +1,3 @@
-
     """
         sigmoid!(x::Array)
 
@@ -33,10 +32,18 @@
     function tanh!(x::Array)
         return tanh.(x) end
 
+function _Activation_(_main_=false)
+    if !_main_
+        println('\n', "Import function:")
+        println("----------")
+        println(_List)
+    else
+        X = [-20 10 0 20 -30];
+        print( sigmoid!(X) );
 
-X = [-20 10 0 20 -30];
-print( sigmoid!(X) );
+        print( ReLU!(X) );
 
-print( ReLU!(X) )
+        print( tanh.(X) );end
+end
 
-print( tanh.(X) );
+_List = ["sigmoid!" "ReLU!" "tanh!"];
