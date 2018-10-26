@@ -15,3 +15,5 @@ Online Note
 ## Julia
 ### DataFrame
   1. Quick Start
+### Deep Learning
+  1. Activations 
