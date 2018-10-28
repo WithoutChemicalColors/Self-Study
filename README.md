@@ -3,7 +3,7 @@ Online Note
 
 ## C++
   1. vector_1 -- basic I
-  2. string_1 -- baisc I
+  $f^$
 * * *
 ## Python
 ### cython
@@ -12,7 +12,9 @@ Online Note
   3. working with numpy
   3. elimination -- simple demo of Gaussian elimination & backp elimination
 #### ref
-  1. <official cython web> https://cython.readthedocs.io/en/latest/index.html
+  1. *official cython web* https://cython.readthedocs.io/en/latest/index.html
+### logging
+  1. Decorate & Logging
 ### openCV
   1. A simple example to use camera on the computer.
   
@@ -21,4 +23,4 @@ Online Note
 ### DataFrame
   1. Quick Start
 ### Deep Learning
-  1. Activations 
+  1. Activations (still working on it)
