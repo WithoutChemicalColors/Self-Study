@@ -3,7 +3,9 @@ Online Note
 
 ## C++
   1. vector_1 -- basic I
-  $$f^{5}$$
+  
+  
+$$ f^5 = 123 $$
 * * *
 ## Python
 ### cython
