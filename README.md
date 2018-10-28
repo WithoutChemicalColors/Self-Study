@@ -1,11 +1,11 @@
 # Self-Study
 Online Note
 
+$$   f(x)=w^Tx+b $$
+
 ## C++
   1. vector_1 -- basic I
   
-  
-$$ f^5 = 123 $$
 * * *
 ## Python
 ### cython
