@@ -1,8 +1,10 @@
 # Self-Study
 Online Note
 
-$$   f(x)=w^Tx+b $$
-$[\![e]\!]$
+\begin{align*}
+f(x)=w^Tx+b
+\end{align*}
+
 
 ## C++
   1. vector_1 -- basic I
