@@ -2,6 +2,7 @@
 Online Note
 
 $$   f(x)=w^Tx+b $$
+$[\![e]\!]$
 
 ## C++
   1. vector_1 -- basic I
