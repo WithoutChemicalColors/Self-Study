@@ -32,7 +32,7 @@ Online Note
   1. *Textbook* A Friendly Introduction to Numerical Analysis (by Brain Bradie)
 
                   _______      ______
-                ||       ||   |)____(|
+                ||       ||   |)____(|        
                 ||       ||   |}____{|
                 ||_______||   |]____[|
                /----------/ @
