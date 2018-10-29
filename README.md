@@ -30,3 +30,9 @@ Online Note
   1. pGE -- (I) Normal GE, (II) partial pivoting GE, (III) scaled partial pivoting GE
 #### ref
   1. *Textbook* A Friendly Introduction to Numerical Analysis (by Brain Bradie)
+
+                  _______      ______
+                ||       ||   |)____(|
+                ||M A T H||   |}____{|
+                ||_______||   |]____[|
+               /----------/  
