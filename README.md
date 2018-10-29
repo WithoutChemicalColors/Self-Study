@@ -25,3 +25,5 @@ Online Note
   1. Quick Start
 ### Deep Learning
   1. Activations (still working on it)
+### Algorithm
+  1. pGE -- (I) Normal GE, (II) partial GE, (III) scaled partial GE
