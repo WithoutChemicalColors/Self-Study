@@ -28,3 +28,5 @@ Online Note
   1. Activations (still working on it)
 ### Algorithm
   1. pGE -- (I) Normal GE, (II) partial pivoting GE, (III) scaled partial pivoting GE
+#### ref
+  1. *Textbook* A Friendly Introduction to Numerical Analysis (by Brain Bradie)
