@@ -3,6 +3,7 @@ Online Note
 
 ## C++
   1. vector_1 -- basic I
+  2. string_1 -- basic I
   
 * * *
 ## Python
