@@ -1,7 +1,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "sort.h"
+
+#include "shaker.h"
+#include "bubble.h"
+#include "quick.h"
+#include "merge.h"
+
+#include <limits>
 
 using namespace std;
 
@@ -25,8 +31,10 @@ void show(vector<T> &array1d){
 
 
 int main(){
-  int a[] = {1, 5, 7, 9, 3, 2, 6, 8, 0, 4};
-  vector<int> vect({1, 5, 7, 9, 3, 2, 6, 8, 0, 4});
+  int a[] = {12, 1, 5, 7, 9, 3, 10, 2, 6, 8, 0, 4, 11};
+  vector<int> vect; vect.resize(13,0);
+  // original vector
+  initialize( vect, 13, a);
   cout<< "original vector:\n";
   show(vect);
 
@@ -35,21 +43,19 @@ int main(){
   bubble(vect); show(vect);
 
   // shaker sort
-  initialize( vect, 10, a);
+  initialize( vect, 13, a);
   cout<< "sort: shaker\n";
   shaker(vect); show(vect);
 
   // quick sort
-  initialize( vect, 10, a);
+  initialize( vect, 13, a);
   cout<< "sort: quick\n";
   quick(vect, 0, vect.size()-1); show(vect);
 
-  // quick sort
-  initialize( vect, 10, a);
-  cout<< "sort: Merge\n";
-  quick(vect, 0, vect.size()-1); show(vect);
+  // merge sort
+  initialize(vect, 13, a);
+  cout<< "sort: merge\n";
+  merge(vect, 0, vect.size()-1); show(vect);
 
-
-  //
   return 0;
 }
