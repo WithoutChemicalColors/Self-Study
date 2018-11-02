@@ -33,6 +33,7 @@ void show(vector<T> &array1d){
 int main(){
   int a[] = {12, 1, 5, 7, 9, 3, 10, 2, 6, 8, 0, 4, 11};
   vector<int> vect; vect.resize(13,0);
+
   // original vector
   initialize( vect, 13, a);
   cout<< "original vector:\n";

@@ -7,7 +7,9 @@ using namespace std;
 template <class T>
 void _combine(vector<T> &vect, int sdx, int mdx, int edx){
     vector<T> left_vect(vect.begin()+sdx, vect.begin()+mdx+1);
-    vector<T> right_vect(vect.begin()+mdx+1, vect.begin()+edx+1);
+    // 左閉右開 -> 為了把 vect.at(mdx) 加進去所以要+1
+    vector<T> right_vect(vect.begin()+mdx+1, vect.begin()+edx+1);// 左閉右開
+    // 左閉右開 -> 為了把 vect.at(edx) 加進去所以要+1
 
     int left_id=0, right_id=0;
 
