@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-using namespace std;
 
 // use vector to build matrix class
 template <class T>
@@ -11,15 +9,15 @@ private:
 
 public:
   Matrix(int nr, int nc);                // Constructure: Matrix
-	Matrix(T *input, int nr, int nc); // Constructure: Matrix initialize with input array
+	Matrix(T *input, int nr, int nc);      // Constructure: Matrix initialize with input array
   int nrows;
   int ncols;
   void show();                           // print the matrix
-  vector<T> at(int rdx);                 // "at" func for Matrix<T>
-  T at(int rdx, int cdx);
+  vector<T> at(int rdx);                 // 1d "at" func for Matrix<T>
+  T at(int rdx, int cdx);                // 2d "at" func
   void set(int i, int j, T number);      // set value replace operator =
   Matrix<T> add(Matrix<T> natrix);       // add function
-  Matrix<T> operator+(Matrix<T> natrix);
+  Matrix<T> operator+(Matrix<T> natrix); // add function by operator +
 };
 
 // Constructure of Matrix<T>
@@ -36,8 +34,9 @@ Matrix<T>::Matrix(int nr, int nc){
 // Constructure by Initializer
 template <class T>
 Matrix<T>::Matrix(T *input, int nr, int nc){
+  // memorize nrows, and ncols;
   nrows = nr;
-  ncols = nc; // memorize nrows, and ncols;
+  ncols = nc;
   col.resize(ncols, 0);
   matrix.resize(nrows, col); // create in parivate
 	for(int i=0; i<nr; i++){
@@ -64,6 +63,7 @@ vector<T> Matrix<T>::at(int rdx){
   return matrix.at(rdx);
 }
 
+// 2d "at" function
 template <class T>
 T Matrix<T>::at(int rdx, int cdx){
   return matrix.at(rdx).at(cdx);
