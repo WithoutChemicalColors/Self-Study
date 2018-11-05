@@ -28,42 +28,103 @@ void storenums(string &sent, vector<T> &nums){
         num_buf += sent.front();
         sent.erase(sent.begin());
     }
-    int n;
-    istringstream(num_buf) >> n;
-    nums.push_back( n );
+    if( num_buf.size()>0 ){
+        int n;
+        istringstream(num_buf) >> n;
+        nums.push_back( n );
+    }
 }
 
+template <class T>
+void storesigns(string &sent, vector<T> &signs){
+    if( sent.size() != 0 ){
+        signs.push_back(sent.front());
+        sent.erase(sent.begin());
+    }
+}
+
+template <class T>
+void operator_first(vector<T> &nums, vector<char> &signs);
+
+template <class T>
+void operator_last(vector<T> &nums, vector<char> &signs);
+
+// 1 + 2 + 3 + 4 + 5
+// ( 1 ) - ( ( 5 * 2 ) - ( 99 ) ) / ( 20 )
+//
 int main(int argc, char **argv){
     string sent;
     while(getline(cin, sent)){
-        // deblank
-        sent = deblank(sent);
-
-        // deparentheses
-        string num_buf;
-        string inside;
+        // prepare containers
         vector<int> nums;
         vector<char> signs;
+        // deblank
+        sent = deblank(sent);
+        while(sent.size()!=0){
+            storenums(sent, nums);   // sotre nums
+            storesigns(sent, signs); // sotre signs
 
-        for(int i=0; i<sent.size(); i++){
-            if(sent.at(i)=='('){
-
-            } else{
-                if( isdigit(sent.at(i)) )
-                    num_buf += sent.at(i);
-                else{
-                    int num_temp; istringstream(num_buf) >> num_temp; num_buf.clear();
-                    nums.push_back(num_temp);
-                    signs.push_back(sent.at(i));
+            // deparentheses --> numbers
+            if( signs.back()==')' ){
+                vector<int> nums_in;
+                vector<char> signs_in;
+                signs.pop_back();
+                while( signs.back()!='(' ){
+                    nums_in.insert(nums_in.begin(), nums.back());
+                    nums.pop_back();
+                    signs_in.insert(signs_in.begin(), signs.back());
+                    signs.pop_back();
                 }
-            }// endelse
-        }// endfor
-        int num_temp; istringstream(num_buf) >> num_temp; num_buf.clear();
-        nums.push_back(num_temp);
-        // istringstream ( sent ) >> a;
-        show(nums);
-        show(signs);
-
+                nums_in.insert(nums_in.begin(), nums.back());
+                nums.pop_back();
+                signs.pop_back();
+                operator_first(nums_in, signs_in);
+                operator_last(nums_in, signs_in);
+                nums.push_back(nums_in.at(0));
+            }
+        }
+        // single sentence
+        operator_first(nums, signs);
+        operator_last(nums, signs);
+        cout<< nums.front() << endl;
     }
     return 0;
+}
+
+template <class T>
+void operator_first(vector<T> &nums, vector<char> &signs){
+
+    for(int i=0; i<signs.size(); i++){
+        switch( signs.at(i) ){
+            case '*':
+                nums.at(i) = nums.at(i) * nums.at(i+1);
+                nums.erase( nums.begin()+i+1 );
+                signs.erase( signs.begin()+i );
+                i--;
+                break;
+            case '/':
+                nums.at(i) = nums.at(i) / nums.at(i+1);
+                nums.erase( nums.begin()+i+1 );
+                signs.erase( signs.begin()+i );
+                i--;
+                break;
+            case '%':
+                nums.at(i) = nums.at(i) % nums.at(i+1);
+                nums.erase( nums.begin()+i+1 );
+                signs.erase( signs.begin()+i );
+                i--;
+                break;
+            }
+    }
+}
+
+template <class T>
+void operator_last(vector<T> &nums, vector<char> &signs){
+    for(int i=0; i<signs.size(); i++){
+        if( signs.at(i)=='+' )
+            nums.at(0) = nums.at(0) + nums.at(1);
+        else
+            nums.at(0) = nums.at(0) - nums.at(1);
+        nums.erase(nums.begin()+1);
+    }
 }
