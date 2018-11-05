@@ -10,10 +10,16 @@ void show(const T brain){
 }
 
 int main(){
-    vector<int> vect({0,1,2,3,4,5});
+    string sent = "1234567";
+    show(sent);
+    for(int i=0; i<sent.size(); i++){
+        sent.erase(sent.begin());
+        cout<< i << " : " << sent.size() << endl;
+    }
+
+    vector<char> vect({'1','2',')'});
     show(vect);
-    vect.erase(vect.begin()+1);
-    show(vect);
-    cout<< vect.size() << endl;
+    if( vect.back()==')')
+        cout<<"YES"<<endl;
 
 }

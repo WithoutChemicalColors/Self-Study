@@ -20,7 +20,18 @@ void show(const T brain){
         cout<< brain.at(i)<< ' ';
     cout<< endl;
 }
-// shrink_parentheses
+// store numbers
+template <class T>
+void storenums(string &sent, vector<T> &nums){
+    string num_buf;
+    while( isdigit(sent.front()) ){
+        num_buf += sent.front();
+        sent.erase(sent.begin());
+    }
+    int n;
+    istringstream(num_buf) >> n;
+    nums.push_back( n );
+}
 
 int main(int argc, char **argv){
     string sent;
@@ -36,7 +47,7 @@ int main(int argc, char **argv){
 
         for(int i=0; i<sent.size(); i++){
             if(sent.at(i)=='('){
-                
+
             } else{
                 if( isdigit(sent.at(i)) )
                     num_buf += sent.at(i);
