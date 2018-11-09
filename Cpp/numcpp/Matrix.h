@@ -18,7 +18,10 @@ public:
   void set(int i, int j, T number);      // set value replace operator =
   Matrix<T> add(Matrix<T> natrix);       // add function
   Matrix<T> operator+(Matrix<T> natrix); // add function by operator +
+  Matrix<T> matmul(Matrix<T> natrix);    // matrix multiplication
+  Matrix<T> operator@(Matrix<T> natrix); // matrix multiplication
 };
+
 
 // Constructure of Matrix<T>
 template <class T>
@@ -88,6 +91,16 @@ Matrix<T> Matrix<T>::operator+(Matrix<T> natrix){
   Matrix<T> ans(nrows, ncols);
   for(int i=0; i<nrows; i++)
     for(int j=0; j<ncols; j++)
-      ans.set(i, j, matrix.at(i).at(j) + natrix.at(i).at(j));
+      ans.set(i, j, matrix.at(i,k) + natrix.at(k,j) );
   return ans;
 }
+// matrix multiplication
+template <class T>
+Matrix<T> Matrix<T>::matmul(Matrix<T> natrix){
+  Matrix<T> ans(nrows, ncols);
+  for(int i=0; i<nrows; i++)
+    for(int j=0; j<ncols; j++)
+      for(int k=0; k<nrows; k++)
+        ans.set(i, j, matrix.at(i,k) * matrix.at(k,j) );
+}
+Matrix<T> operator@(Matrix<T> natrix); // matrix multiplication
