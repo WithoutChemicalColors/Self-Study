@@ -14,13 +14,22 @@ Online Note
 ### algorithm
 #### numerical
   1. LU decomposition
-#### statistic
+#### statisticz
   1. Linear Regression
 #### ref
   1. *Textbook* A Friendly Introduction to Numerical Analysis (by Brain Bradie)
 ### openCV
   1. A simple example to use camera on the computer.
   
+* * *
+
+## Cpp
+### easy example
+  1. vector
+  2. string
+### sort
+### HS
+
 * * *
 
 ## Julia
