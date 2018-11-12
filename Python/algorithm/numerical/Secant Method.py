@@ -17,6 +17,24 @@ def _central_difference(func, x, delta=1e-5):
     half = delta/2
     return ( func(x+half) - func(x-half) ) / delta
 
+def Newton(func, x_now, tolerance=1e-5):
+    """
+    Non-formal Newton method
+    it's realized by central difference.
+    If possible, real differentiation should be used.
+    """
+    judge = 1
+    stopper = 0
+    while judge > tolerance:
+        stopper += 1
+        if stopper >= 1e10:
+            print("stopper")
+            break;
+        x_new = x_now - func(x_now) / _central_difference(func, x_now)
+        judge = abs( x_new - x_now )
+        x_now= x_new
+    return x_now
+
 def Secant_Method(func, x_now, x_old, tolerance=1e-5):
     judge = 1
     stopper = 0
@@ -32,7 +50,7 @@ def Secant_Method(func, x_now, x_old, tolerance=1e-5):
     return x_now
         
 ans = Secant_Method(func, 2, 1)
-ans2 = Secant_Method(func2, 2, 1)
+ans2 = Newton(func, 2)
 print(ans)
 print(ans2)
 
