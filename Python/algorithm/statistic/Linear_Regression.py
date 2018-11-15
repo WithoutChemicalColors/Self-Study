@@ -15,8 +15,19 @@ class LinearRegression():
         XT = self.X.T
         self.coefs = np.linalg.inv( XT @ self.X ) @ XT @ self.Y
         return self.coefs
+    
     def coefficients(self):
         return self.coefs
+    
+    def predict(self, X_test=None):
+        if X_test == None:
+            return self.X @ self.coefs
+        else:
+            return X_test @ self.coefs
+    
+    def residual(self):
+        self.residual = np.mean( (self.Y - self.X @ self.coefs)**2 )
+        return self.residual
         
 import numpy as np
 import pandas as pd
@@ -36,4 +47,9 @@ pred_col = ['HCHO', 'catalyst', 'temp', 'time']
 resp = df[resp_col].values
 pred = df[pred_col].values
 
-model = LinearRegression(resp, pred).lm()
+model = LinearRegression(resp, pred)
+model.lm()
+
+fig, ax = plt.subplots(ncols=2, sharey=True)
+ax[0].scatter(range(30), model.predict())
+ax[1].scatter(range(30), resp)
