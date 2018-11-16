@@ -8,10 +8,11 @@ class LinearRegression():
     def __init__(self, response, predictor):
         self.X = predictor.astype(np.float)
         self.Y = response.astype(np.float)
-
+        self.degree_of_freedom = predictor.shape[0] - predictor.shape[1]
     def lm(self, use_intercept=True):
         if use_intercept:
             self.X = np.column_stack( (np.ones((self.X.shape[0],1)), self.X) );
+            self.degree_of_freedom -= 1
         XT = self.X.T
         self.coefs = np.linalg.inv( XT @ self.X ) @ XT @ self.Y
         return self.coefs
@@ -28,6 +29,7 @@ class LinearRegression():
     def residual(self):
         self.residual = np.mean( (self.Y - self.X @ self.coefs)**2 )
         return self.residual
+        
         
 import numpy as np
 import pandas as pd
